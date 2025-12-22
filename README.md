@@ -1,0 +1,3 @@
+- Designed and implemented a 16-bit microprocessor in Verilog from an ISA specification, including full datapath and control logic
+- Integrated core modules (ALU, register file, memory, PC, IR) into a working execution cycle using a finite-state controller
+- Validated functionality through simulation, testbenches, and custom assembly programs; produced final documentation and demo
