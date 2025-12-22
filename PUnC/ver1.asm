@@ -1,0 +1,19 @@
+LD   R3, #30
+LEA  R1, #31
+LDI  R0, #31
+ADD  R3, R3, #-1
+BRz  #13
+ADD  R1, R1, #1
+LDI  R2, #0
+NOT  R5, R2
+ADD  R5, R5, #1
+ADD  R5, R0, R5
+BRp  #3
+ADD  R0, R2, #0
+ADD  R3, R3, #-1
+BRp  #-9
+ST   R0, #29
+HALT
+0000
+0004
+0003
