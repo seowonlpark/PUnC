@@ -52,9 +52,6 @@ module PUnCControl(
 );
 
 	// FSM States
-	// Add your FSM State values as localparams here
-	// localparam STATE_FETCH     = X'd0;
-	// FSM States
     localparam STATE_FETCH      = 5'd0;
     localparam STATE_DECODE     = 5'd1;
     localparam STATE_ADD_R      = 5'd2;
@@ -83,7 +80,6 @@ module PUnCControl(
 
 	// Output Combinational Logic
 	always @( * ) begin
-		// Set default values for outputs here (prevents implicit latching)
         mem_w_en = 0;
         mem_reg_ld = 0;
         mem_reg_rst = 0;
@@ -94,7 +90,6 @@ module PUnCControl(
         nzp_en = 0;
         nzp_rst = 0;
         
-		// Add your output logic here
         case (state)
             STATE_FETCH: begin
                 mem_r_addr_sel = `MEM_R_ADDR_SEL_PC;
@@ -424,17 +419,14 @@ module PUnCControl(
                ir_ld = 0;
                pc_up = 0;
             end
-        
         endcase 
-
 	end
 
 	// Next State Combinational Logic
 	always @( * ) begin
-		// Set default value for next state here
 		next_state = state;
 
-		// Add your next-state logic here
+		// next-state logic
 		case (state)
             STATE_FETCH: begin
 		      if (ir_ld) begin
@@ -586,12 +578,10 @@ module PUnCControl(
  	// State Update Sequential Logic
 	always @(posedge clk) begin
 		if (rst) begin
-			// Add your initial state here
 			state <= STATE_FETCH;
 			pc_rst = 1;
 		end
 		else begin
-			// Add your next state here
 			state <= next_state;
 		end
 	end
